@@ -19,8 +19,8 @@ input_field_password.send_keys("SuperSecretPassword!")
 sleep(1)
 browser.find_element(By.CSS_SELECTOR, "[class='radius']").click()
 sleep(1)
-browser.find_element(By.CSS_SELECTOR, "[class='flash success']")
+message_news = browser.find_element(By.CSS_SELECTOR, "[class='flash success']")
 
-print("You logged into a secure area!")
+print(message_news.text)
 
 browser.quit()

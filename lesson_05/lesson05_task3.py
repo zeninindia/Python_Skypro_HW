@@ -9,7 +9,7 @@ browser.get("http://the-internet.herokuapp.com/inputs")
 
 sleep(2)
 input_field = browser.find_element(By.CSS_SELECTOR, "[type='number']")
-input_field.clear()
+
 input_field.send_keys("12345")
 sleep(2)
 input_field.clear()

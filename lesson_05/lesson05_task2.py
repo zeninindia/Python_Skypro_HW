@@ -4,6 +4,7 @@ from time import sleep
 
 
 browser = webdriver.Chrome()
+
 browser.get("http://uitestingplayground.com/dynamicid")
 
 sleep(2)

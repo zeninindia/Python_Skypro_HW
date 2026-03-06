@@ -5,6 +5,7 @@ from time import sleep
 
 
 browser = webdriver.Firefox()
+
 browser.get("http://the-internet.herokuapp.com/inputs")
 
 sleep(2)

@@ -9,4 +9,5 @@ browser.get("http://uitestingplayground.com/classattr")
 sleep(2)
 browser.find_element(By.CSS_SELECTOR, ".btn-primary").click()
 sleep(2)
+
 browser.quit()

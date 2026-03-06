@@ -16,6 +16,7 @@ sleep(1)
 input_field_password = browser.find_element(By.CSS_SELECTOR, "[name='password']")
 input_field_password.clear()
 input_field_password.send_keys("SuperSecretPassword!")
+
 sleep(1)
 browser.find_element(By.CSS_SELECTOR, "[class='radius']").click()
 sleep(1)

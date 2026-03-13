@@ -19,6 +19,3 @@ class TotalPage:
         nums = re.search(r'\$(\d+\.\d{2})', total)
         summ = float(nums.group(1))
         return summ
-
-    # def close(self):
-    #     self.driver.quit()

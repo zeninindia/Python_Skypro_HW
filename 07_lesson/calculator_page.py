@@ -9,11 +9,10 @@ class CalculatorPage:
 
         self.driver.maximize_window()
 
-
     def open_home_page(self):
         self.driver.get("https://bonigarcia.dev/"
-        "selenium-webdriver-java/"
-        "slow-calculator.html")
+                        "selenium-webdriver-java/"
+                        "slow-calculator.html")
 
     def delay_field(self, delay):
         input_field = self.driver.find_element(By.ID, "delay")
@@ -21,9 +20,11 @@ class CalculatorPage:
         input_field.send_keys(delay)
 
     def click_submit(self, buttons):
-        self.driver.find_element(By.CSS_SELECTOR, '[class="clear btn btn-outline-danger"]').click()
+        self.driver.find_element(
+            By.CSS_SELECTOR, '[class="clear btn '
+                             'btn-outline-danger"]').click()
         for button in buttons:
-             self.driver.find_element(
+            self.driver.find_element(
                 By.XPATH, f"//span[text()='{button}']").click()
 
     def screen(self, value):

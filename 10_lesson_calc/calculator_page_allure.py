@@ -10,7 +10,8 @@ import allure
 @allure.story("создание класса CalculatorPage")
 class CalculatorPage:
     @allure.title("инициализация класса")
-    @allure.story("определение параметра driver для класса CalculatorPage")
+    @allure.story("определение параметра driver "
+                  "для класса CalculatorPage")
     def __init__(self, driver):
         self.driver = driver
 
@@ -29,12 +30,13 @@ class CalculatorPage:
         # ввод адреса страницы
         with allure.step("определение параметра driver"):
             self.driver.get("https://bonigarcia.dev/"
-                        "selenium-webdriver-java/"
-                        "slow-calculator.html")
+                            "selenium-webdriver-java/"
+                            "slow-calculator.html")
 
     @allure.id("INPUT DELAY")
     @allure.title("поле задержки")
-    @allure.story("нахождения поля ввода 'delay' и ввод данных задержки ")
+    @allure.story("нахождения поля ввода 'delay' "
+                  "и ввод данных задержки ")
     @allure.feature("INPUT")
     def delay_field(self, delay: str):
         """
@@ -51,8 +53,6 @@ class CalculatorPage:
         # ввод параметра задержки времени в файле test_calculator.py
         with allure.step("заполнения поля 'delay' параметром {delay}"):
             input_field.send_keys(delay)
-
-
 
     @allure.id("CHOSE BUTTONS")
     @allure.title("кнопки")
@@ -74,7 +74,8 @@ class CalculatorPage:
                 self.driver.find_element(
                     By.XPATH, f"//span[text()='{button}']").click()
 
-    # ожидание появления результата на экране калькулятора и получения результата в формате строки
+    # ожидание появления результата на экране
+    # калькулятора и получения результата в формате строки
     @allure.step("получение результата вычисления калькулятора")
     def screen(self, value):
         wait = WebDriverWait(self.driver, 60, 0.5)

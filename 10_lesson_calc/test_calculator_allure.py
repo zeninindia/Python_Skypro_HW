@@ -15,16 +15,22 @@ def test_calculator():
     with allure.step("открытие сайта Slow Calculator"):
         calculator.open_home_page()
     with allure.step("вызова функции заполнения поля 'delay'"):
-        with allure.step("ввод временно`го параметра в строку 'delay' в формате str {delay}"):
+        with allure.step("ввод временно`го параметра в строку 'delay'"
+                         " в формате str {delay}"):
             calculator.delay_field("45")
     with allure.step("вызова функции нажатие на кнопки 'keys'"):
-        with allure.step("ввод числового параметра для нажатия конкретных кнопок"):
+        with allure.step("ввод числового параметра для нажатия"
+                         " конкретных кнопок"):
             calculator.click_submit(["7", "+", "8", "="])
-    with allure.step("ожидание получения результата на экране калькулятора"):
+    with allure.step("ожидание получения результата на"
+                     " экране калькулятора"):
         res = calculator.screen('15')
-    with allure.step("создание переменной для ввода ожидаемого результата"):
+    with allure.step("создание переменной для ввода"
+                     " ожидаемого результата"):
         to_be = '15'
-    with allure.step("сравнить фактический результат с экрана калькулятора с переменной ожидаемого результата"):
+    with allure.step("сравнить фактический результат"
+                     " с экрана калькулятора "
+                     "с переменной ожидаемого результата"):
         assert res == to_be
     with allure.step("закрыть все"):
         calculator.close()

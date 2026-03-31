@@ -9,13 +9,15 @@ import allure
 @allure.id("TOTAL")
 @allure.epic("TOTAL")
 @allure.title("Class Total")
-@allure.story("Создание класса страницы ИТОГ и выведение суммы заказа в терминал")
+@allure.story("Создание класса страницы ИТОГ и "
+              "выведение суммы заказа в терминал")
 class TotalPage:
     """
        на этой странице отображается итоговая сумма
        здесь находятся функции вывода итоговой суммы
        и проверка соответствия ожидания и результата
     """
+
     @allure.title("Инициализация класса TotalPage")
     @allure.id("INIT")
     def __init__(self, driver):
@@ -26,7 +28,8 @@ class TotalPage:
             self.summ = None
 
     @allure.title("Вывод итога")
-    @allure.description("Ввод итога заказа и сравнение с ожидаемым результатам")
+    @allure.description("Ввод итога заказа и сравнение"
+                        " с ожидаемым результатам")
     @allure.epic("TOTAL")
     def total_page(self):
         """
@@ -44,5 +47,6 @@ class TotalPage:
             print(total)
         nums = re.search(r'\$(\d+\.\d{2})', total)
         summ = float(nums.group(1))
-        with allure.step("возвращает в функцию цифру отображенную в поле суммы"):
+        with allure.step("возвращает в функцию цифру"
+                         " отображенную в поле суммы"):
             return summ

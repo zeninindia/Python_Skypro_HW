@@ -2,11 +2,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import allure
 
+
 @allure.severity("Blocker")
 @allure.id("LOG")
 @allure.epic("LOG")
 @allure.title("Class LOGINPage")
-@allure.story("Создание Класса страницы логирования, открытие страницы магазина, ввод login&password, нажатие на кнопку логин")
+@allure.story(
+    "Создание Класса страницы логирования,"
+    " открытие страницы магазина, ввод login&password,"
+    " нажатие на кнопку логин")
 class LoginPage:
     @allure.title("Инициализация класса LOGINPage")
     def __init__(self, driver):
@@ -23,7 +27,8 @@ class LoginPage:
             self.driver.get("https://www.saucedemo.com/")
 
     @allure.title("Ввод {login}:{password}")
-    @allure.description("Ввод логина и пароля,это первый степ, данные вводятся на странице теста")
+    @allure.description("Ввод логина и пароля,это первый степ, "
+                        "данные вводятся на странице теста")
     @allure.epic("LOG")
     def log(self, login: str, password: str):
         """
@@ -37,8 +42,10 @@ class LoginPage:
         with allure.step("Нахождение поля password"):
             self.driver.find_element(
                 By.CSS_SELECTOR, '[name="password"]').send_keys(password)
+
     @allure.title("Нажатие кнопки Login")
-    @allure.description("нажатие на кнопку логизации и переход на следующую страницу shop_mainPage.py")
+    @allure.description("нажатие на кнопку логизации и "
+                        "переход на следующую страницу shop_mainPage.py")
     @allure.epic("BUTTON")
     def login(self):
         self.driver.find_element(

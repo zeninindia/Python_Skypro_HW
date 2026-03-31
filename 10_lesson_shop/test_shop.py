@@ -13,20 +13,23 @@ import allure
 @allure.story("проверка работы сайта shop")
 def test_checkout():
     """
-       функция регистрации {lp}, корзины {mp} и заказа {cp} и получение итога {tp}
+       функция регистрации {lp}, корзины {mp}
+       и заказа {cp} и получение итога {tp}
     """
     with allure.step("открытие страницы Firefox"):
         driver = webdriver.Firefox()
     with allure.step("определение драйвера со страницы LoginPage"):
         lp = LoginPage(driver)
-    with allure.step("регистрация на странице Login Page, ввод {login}:{password}"):
+    with allure.step("регистрация на странице Login Page,"
+                     " ввод {login}:{password}"):
         lp.log("standard_user", "secret_sauce")
     with allure.step("нажатие на кнопку Login"):
         lp.login()
 
     with allure.step("определение драйвера со страницы MainPage"):
         mp = MainPage(driver)
-    with allure.step("выбор конкретных кнопок из списка element на странице mainPage"):
+    with allure.step("выбор конкретных кнопок из списка "
+                     "element на странице mainPage"):
         mp.choose_items("Backpack")
     mp.choose_items("T-Shirt")
     mp.choose_items("Onesie")
@@ -40,7 +43,8 @@ def test_checkout():
 
     with allure.step("определение драйвера со страницы CheckoutPage"):
         cp = CheckoutPage(driver)
-    with allure.step("функция заполнения полей доставки, ввод данных {f_name}:{l_name}:{zipp}"):
+    with allure.step("функция заполнения полей доставки,"
+                     " ввод данных {f_name}:{l_name}:{zipp}"):
         cp.name_fields("Olga", "Зенкина", "123456")
     with allure.step("нажатие на кнопку Continue"):
         cp.cont()
@@ -49,7 +53,8 @@ def test_checkout():
         tp = TotalPage(driver)
     with allure.step("выявление итога и превращение его в цифры"):
         up = tp.total_page()
-    with allure.step("проверка соответствия итога ожидаемому результатау"):
+    with allure.step("проверка соответствия итога"
+                     " ожидаемому результату"):
         assert up == 58.29
 
     driver.quit()
